@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                sh '''
+                    echo 'Hello World'
+                    mkdir -p dir1
+                    cd dir1/
+                    touch file1
+                    cd ..
+                '''
+            }
+        }
+        stage('Hello2'){
+            steps{
+                sh 'mkdir -p dir2'
+            }
+        }
+        stage('Hello3')
+        {
+            steps{
+                sh 'cp dir1/file1 dir2/'
+            }
+        }
+            
+            
+            
+        
+    }
+}
